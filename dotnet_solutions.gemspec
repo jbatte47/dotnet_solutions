@@ -5,7 +5,7 @@ require 'dotnet_solutions/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "dotnet_solutions"
-  spec.version       = DotnetSolutions::VERSION
+  spec.version       = DotNetSolutions::VERSION
   spec.authors       = ["The Tribe"]
   spec.email         = ["jbatte@gmail.com"]
   spec.summary       = %q{Provides access to .NET-specific file-based tasks.}
@@ -20,4 +20,8 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+
+  spec.add_runtime_dependency 'ember'
+  spec.add_runtime_dependency 'json'
+  spec.add_runtime_dependency 'pathname3'
 end
