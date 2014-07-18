@@ -21,5 +21,14 @@ module DotNetSolutions
       hash = JSON.parse(File.read file)
       Symbolizer.convert hash
     end
+
+    def self.save_json(path, data)
+      json = JSON.pretty_generate(data)
+      save path, json
+    end
+
+    def self.save(path, text)
+      File.open(path, 'w'){|file| file.write(text)}
+    end
   end
 end

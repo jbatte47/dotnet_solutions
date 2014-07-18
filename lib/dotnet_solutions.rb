@@ -27,11 +27,19 @@ module DotNetSolutions
         :projects => []
       }
 
-      sln_json = JSON.pretty_generate(sln)
-
-      File.open(path, 'w'){|file| file.write(sln_json)}
+      Files.save_json path, sln
 
       sln
+    end
+
+    def add_project(data)
+      data[:type] ||= 'Library'
+      data[:sources] ||= ["#{data[:name]}/**/*"]
+      @sln[:projects] << data
+      Files.save_json @files[:sln], @sln
+    end
+
+    def add_dependency(data)
     end
 
     def generate_vs_files
