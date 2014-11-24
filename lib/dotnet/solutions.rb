@@ -7,7 +7,7 @@ module DotNet
   
   # Provides an entry point for solution generation scenarios.
   class Solution
-    include DotNet::ModelMixin
+    include ModelMixin
 
     attr_accessor :name, :version
     attr_reader :packages, :projects, :metadata, :directory
@@ -30,11 +30,14 @@ module DotNet
 
     # Adds a new package reference.
     #
-    # @param package [Hash] the hash of package ref information to use.
-    # @return [void]
+    # @param package [Hash] the hash of a package reference to add.
+    # @param package [Array<Hash>] an array of the hashes for package references to add.
+    # @return [PackageRef]
     def add_package_ref(package)
       @packages << package
     end
+
+
 
     # Adds a new project to the collection.
     #
